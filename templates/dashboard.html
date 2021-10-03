@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block tog %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+{% endblock tog %}
+{% block content %}
+<div>
+    <!-- dashboard url -->
+    <style>
+        .iframe1{
+            margin-left: 270px;
+        }
+    </style>
+    <h1 class="iframe1">Dashboard of Year 2018-19</h1>
+    <iframe width="1250" height="600" class="iframe1" src="https://app.powerbi.com/reportEmbed?reportId=72ff4d13-4b5b-4303-bab9-4cbd919f9e45&autoAuth=true&ctid=8c78c122-f781-4500-9c2a-f645a76281f5&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLXdlc3QtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
+</div>
+<div><br></div>
+<hr>
+<div><br></div>
+<div>
+    <!-- dashboard url -->
+    <style>
+        .iframe2{
+            margin-left: 270px;
+        }
+    </style>
+    <h1 class="iframe2">Dashboard of Year 2019-20</h1>
+    <iframe width="1250" height="600" class="iframe2" src="https://app.powerbi.com/reportEmbed?reportId=176eed83-de8e-4938-8ff7-255cff2e3801&autoAuth=true&ctid=8c78c122-f781-4500-9c2a-f645a76281f5&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLXdlc3QtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
+</div>
+
+
+{% endblock content %}

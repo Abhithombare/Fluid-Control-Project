@@ -1,0 +1,31 @@
+table.dataframe,
+.dataframe th,
+.dataframe td {
+  border: 1px solid black;
+  border-bottom: 1px solid #c8c8c8;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+  width: 100%;
+}
+
+th:nth-child(even),
+td:nth-child(even) {
+  text-align: center;
+}
+
+tr:hover {
+  background-color: #ffff99;
+}
+
+.content-section {
+  margin: 25px 25px 25px 25px;
+  padding: 30px 30px 30px 30px;
+  border: 2px solid #dddddd;
+  border-radius: 15px 15px 15px 15px;
+}
+.reveal {
+  padding-left: 20%;
+}

@@ -1,0 +1,12 @@
+{% extends "duplicates.html" %}
+{% block tog %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+{% endblock tog %}
+{% block supplier %}
+    <div class="form-group row">
+        {{ form.supplier_sort.label(class="col-sm-2 col-form-label") }}
+        <div class="col-sm-10">
+            {{ form.supplier_sort(class="form-control") }}
+        </div>
+    </div>
+{% endblock %}

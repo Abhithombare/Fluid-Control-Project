@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block tog %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+{% endblock tog %}
+{% block content %}
+    <form class="content-section", method="POST", action="">
+        {{ form.hidden_tag() }}
+    <!--<div class="row mb-3">
+            {{ form.dataframe_path.label(class="col-sm-2 col-form-label") }}
+            <div class="col-sm-10">
+                {{ form.dataframe_path(class="form-controll") }}
+            </div>
+        </div>-->
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <h4>Please fill the following form to access consumption</h4>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            {{ form.duration.label(class="col-sm-2 col-form-label") }}
+            <div class="col-sm-10">
+                {{ form.duration(class="form-control") }}
+            </div>
+        </div>
+        <div class="form-group row">
+            {{ form.buyer.label(class="col-sm-2 col-form-label") }}
+            <div class="col-sm-10">
+                {{ form.buyer(class="form-control") }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+            {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </div>
+    </form>
+{% endblock content %}

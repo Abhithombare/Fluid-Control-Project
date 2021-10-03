@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script type="text/javascript">// <![CDATA[
+        function preloader(){
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        }//preloader
+        window.onload = preloader;
+// ]]></script>
+    {% block tog %}{% endblock tog %}
+    <title>Document</title>
+    <style>
+        body{
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 navwidth">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0 bg-dark" href="/home">Fluid Controls Private Limited</a>
+        <!-- <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/">Sign out</a>
+            </li>
+        </ul> -->
+    </nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home">
+                                <i class="material-icons icon1">cloud_upload</i>
+                                Upload Files
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/consumption">
+                                <i class="material-icons icon1">analytics</i>
+                                Consumption
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/duplicate">
+                                <i class="material-icons icon1">file_copy</i>
+                                Duplicate Item Codes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/frequency">
+                                <i class="material-icons icon1">show_chart</i>
+                                Order Frequency
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/supplier">
+                                <i class="material-icons icon1">emoji_events</i>
+                                Supplier Ranking
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/inventory">
+                                <i class="material-icons icon1">inventory_2</i>
+                                Stocking Policy
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cost">
+                                <i class="material-icons icon1">request_quote</i>
+                                Cost Optimization
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pareto">
+                                <i class="material-icons icon1">bar_chart</i>
+                                Pareto Graph
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">
+                                <i class="material-icons icon1">dashboard</i>
+                                Dashboard Report
+                            </a>
+                        </li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                <i class="material-icons icon1">logout</i>
+                                Sign out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--<div class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>-->
+            </div>
+            </div>
+    <br>
+    <div id="loading"></div>
+    <id id="content">
+        <div class="col-md-8 reveal">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {% autoescape false %}
+                        {{ message }}
+                        {% endautoescape %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

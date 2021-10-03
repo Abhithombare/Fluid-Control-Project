@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SAPpy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 7.6rem;
+        }
+
+        html,
+        body {
+            width: auto;
+            height: 100vh;
+        }
+
+        .first {
+            background-color: #e2e2e4;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .second {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .txt-blue {
+            color: #007acc;
+        }
+
+        .txt-org {
+            color: orange;
+        }
+
+        .btn {
+            background: #007acc;
+            border-radius: 10px;
+            margin-top: 5px;
+            height: 40px;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cancel {
+            display: flex;
+            padding-top: 7.5rem;
+            justify-content: flex-end;
+            padding-bottom: 5rem;
+        }
+
+        body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .logo-img1 {
+            margin: auto;
+            height: 95px;
+        }
+
+        .sign-in {
+            padding-top: 4.1rem;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        .password {
+            width: -webkit-fill-available;
+        }
+
+        .form input:focus {
+            outline: none;
+        }
+
+        .btn {
+            width: 80px;
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        input:-webkit-autofill {
+            color: #2a2a2a !important;
+        }
+
+        .form input {
+            border: 0;
+            border-bottom: 0.05rem solid black;
+            width: -webkit-fill-available;
+            background: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .fa-eye {
+            position: absolute;
+            margin-left: -1.5rem;
+        }
+
+        .form p {
+            font-size: 11px;
+            color: #b22f2f;
+        }
+
+        .form {
+            padding-bottom: 2rem !important
+        }
+
+        input:-webkit-autofill {
+            background: transparent !important;
+        }
+
+        .footer {
+            text-align: center;
+            background-color: #34495e;
+            margin: 0px;
+            color: white;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .form-input {
+            width: -webkit-fill-available;
+            padding-left: 1rem;
+        }
+
+        input:-webkit-autofill {
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .first {
+                display: none;
+            }
+
+            .footer {
+                bottom: 0;
+            }
+        }
+
+        #erplogin {
+            height: auto;
+        }
+
+        .link a {
+            color: #007acc;
+            float: right;
+            text-decoration: none;
+        }
+
+        .field-icon {
+            float: right;
+            margin-top: -25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn:hover {
+            color: #fff;
+            background-color: #007acc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="erplogin">
+        <div class="row">
+            <div class="first  col-lg-6">
+
+
+                <img class="logo-img1" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F3f%2F95%2F48%2F3f9548beef7804b53a111ced870da0c6.png&f=1&nofb=1">
+            </div>
+            <div class="col-lg-6 flex-center">
+                <div class="second col-lg-8">
+                   <img class="center" height="95" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F3f%2F95%2F48%2F3f9548beef7804b53a111ced870da0c6.png&f=1&nofb=1">
+                    <h2 class="sign-in"><span class="txt-blue"><strong>SIGN</strong></span> <span
+                            class="txt-org"><strong>IN</strong></span></h2>
+                    <form action="{{ url_for('login') }}" method="post">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                        <div class="form center-block" style="display: flex;">
+                            <div><i class="material-icons">person</i></div>
+                            <div class="form-input">
+                                <input type="text" class="form-group" name="username" id="username"
+                                    placeholder="Enter your Email" autofocus"="" value="" style="width:100% !important;"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form center-block" style="display: flex;">
+                            <div><i class="material-icons">lock</i></div>
+                            <div class="form-input">
+                                <input class="form-group" type="password" data-toggle="password" name="password"
+                                    id="password" placeholder="Enter Your Password" style="width:100% !important;"
+                                    required>
+
+                            </div>
+                        </div>
+                        <div class="form center-block" style="display: flex;">
+                        <button type="submit" class="btn btn-primary">Login</button></div>
+                        <a href="{{url_for('register')}}">Create an account?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
